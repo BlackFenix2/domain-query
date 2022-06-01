@@ -1,0 +1,9 @@
+{
+  "files.eol": "\n"
+  // ignore import/order eslint rule in vscode to fix bug : https://github.com/import-js/eslint-plugin-import/issues/1742
+  // "eslint.codeActionsOnSave.rules": ["!import/order"]
+
+  // "eslint.workingDirectories": ["./apps", "./packages", "./config"]
+
+  // "editor.codeActionsOnSave": { "source.organizeImports": false }
+}

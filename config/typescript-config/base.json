@@ -1,0 +1,20 @@
+{
+  "root": "true",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "base",
+  "compilerOptions": {
+    "useUnknownInCatchVariables": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true
+  },
+  "exclude": ["node_modules"]
+}

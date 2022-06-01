@@ -1,0 +1,9 @@
+{
+  "extends": "typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", ".next", ".turbo", "cypress"]
+}

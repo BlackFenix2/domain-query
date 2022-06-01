@@ -1,0 +1,20 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint . --fix"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "mojodns": "^0.2.4",
+    "whois-json": "^2.0.4"
+  },
+  "peerDependencies": {
+    "eslint-config": "*",
+    "jest-config": "*",
+    "tsconfig": "*"
+  }
+}

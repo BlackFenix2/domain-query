@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "eslint-next.js",
+    "eslint-base.js",
+    "eslint-ui.js"
+  ],
+  "devDependencies": {
+    "@types/eslint": "^8.2.1",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-next": "12.1.5",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-import-resolver-typescript": "2.7.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^26.1.4",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-testing-library": "^5.0.1",
+    "eslint-plugin-unicorn": "^42.0.0"
+  }
+}

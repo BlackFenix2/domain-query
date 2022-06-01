@@ -1,0 +1,74 @@
+{
+  "ip": {
+    "authoritativeAnswer": true,
+    "isTimeout": false,
+    "responseCode": "NO_ERROR",
+    "answerResourceRecords": [
+      {
+        "address": 584628317,
+        "ipAddress": "93.184.216.34",
+        "dnsName": "example.com",
+        "resourceType": 1,
+        "resourceTypeName": "A",
+        "resourceClass": 1,
+        "resourceClassName": "IN",
+        "timeInterval": 86400,
+        "md5_Checksum": "WufwLv/ofmpKtyXO6X+n2A=="
+      }
+    ],
+    "reportingNameServer": "a.iana-servers.net"
+  },
+  "mx": {
+    "authoritativeAnswer": true,
+    "isTimeout": false,
+    "responseCode": "NO_ERROR",
+    "answerResourceRecords": [
+      {
+        "preference": 0,
+        "exchangeName": {
+          "text": "."
+        },
+        "dnsName": "example.com",
+        "resourceType": 15,
+        "resourceTypeName": "MX",
+        "resourceClass": 1,
+        "resourceClassName": "IN",
+        "timeInterval": 86400,
+        "md5_Checksum": "UiGtKVlHT9ZFHoiZmS5kig=="
+      }
+    ],
+    "reportingNameServer": "a.iana-servers.net"
+  },
+  "ns": {
+    "authoritativeAnswer": true,
+    "isTimeout": false,
+    "responseCode": "NO_ERROR",
+    "answerResourceRecords": [
+      {
+        "authoritativeName": {
+          "text": "a.iana-servers.net"
+        },
+        "dnsName": "example.com",
+        "resourceType": 2,
+        "resourceTypeName": "NS",
+        "resourceClass": 1,
+        "resourceClassName": "IN",
+        "timeInterval": 86400,
+        "md5_Checksum": "uo+QpYMuv4GOsJECK9wqrA=="
+      },
+      {
+        "authoritativeName": {
+          "text": "b.iana-servers.net"
+        },
+        "dnsName": "example.com",
+        "resourceType": 2,
+        "resourceTypeName": "NS",
+        "resourceClass": 1,
+        "resourceClassName": "IN",
+        "timeInterval": 86400,
+        "md5_Checksum": "lYnOOAv0QkuA5flBZnj6qQ=="
+      }
+    ],
+    "reportingNameServer": "a.iana-servers.net"
+  }
+}
