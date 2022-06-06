@@ -22,15 +22,11 @@ import type { AResponse, MXResponse, NSResponse } from 'services/domain';
 
 export const Home: NextPage = () => {
   const actions = useStoreActions((actions) => actions.recentDomainQueryModel);
-  const isHydrated = useStoreRehydrated();
 
   const [validationError, setValidationError] = useState('');
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const [isDomainExpiring, setIsDomainExpiring] = useState<boolean>(false);
-  const [isDomainExpired, setIsDomainExpired] = useState<boolean>(false);
 
   const [domainSearchName, setDomainSearchName] = useState('');
   const [activeDomainName, setActiveDomainName] = useState('');
@@ -67,22 +63,6 @@ export const Home: NextPage = () => {
       const whoisResult = await fetchWhois(domainName);
 
       const combinedResult = { ...dnsResult, whois: whoisResult };
-
-      if (whoisResult.registrarRegistrationExpirationDate) {
-        // get listed expiration date
-        const expirationDate = moment(whoisResult.registrarRegistrationExpirationDate);
-        // get current date
-        const today = moment();
-
-        // check if domain is expired
-        if (today > expirationDate) {
-          setIsDomainExpired(true);
-        }
-        // figure out if domain is expiring within 30 days
-        else if (today.diff(expirationDate, 'days') > -30) {
-          setIsDomainExpiring(true);
-        }
-      }
 
       setActiveDomainData(combinedResult);
 
@@ -175,51 +155,48 @@ export const Home: NextPage = () => {
 
   return (
     //check for store hydration
-    isHydrated ? (
-      <Box>
-        <Head>
-          <title>Domain Lookup</title>
-        </Head>
 
-        <Snackbar open={isError} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
-          <Alert severity="error" onClose={() => setIsError(false)}>{`Request could not be completed: ${errorMessage}`}</Alert>
-        </Snackbar>
-        <DomainSearchSection
-          isError={!!validationError}
-          errorMessage={validationError}
-          onChange={(event: any) => setDomainSearchName(event.target.value)}
-          domainSearchName={domainSearchName}
-          domainSubmitHandler={domainSubmitHandler}
-        />
-        <Box maxWidth={'1500px'} margin={'0 auto'} padding={'0 20px'}>
-          <Box sx={{ display: 'flex', transition: '300ms' }}>
-            {/* Main Body Col   */}
-            <Box sx={{ flexGrow: activeDomainName ? 1 : 0, flexShrink: 0 }}>{activeDomainName && ActiveWebsiteInformation}</Box>
+    <Box>
+      <Head>
+        <title>Domain Lookup</title>
+      </Head>
 
-            {/* Recent Col   */}
-            <Box
-              sx={{
-                // width: "100%",
-                // maxWidth: "320px",
-                display: 'flex',
-                margin: '0 auto',
-                padding: '15px 25px',
-                transition: '300ms',
-                flexGrow: activeDomainName ? 0 : 1,
-                flexShrink: 1,
-                flexBasis: '320px',
-              }}
-            >
-              <Box sx={{ width: '100%', maxWidth: '824px', margin: '0 auto' }}>
-                <RecentDomainList activeDomainName={activeDomainName} recentSearchHandler={domainSubmitHandler} />
-              </Box>
+      <Snackbar open={isError} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="error" onClose={() => setIsError(false)}>{`Request could not be completed: ${errorMessage}`}</Alert>
+      </Snackbar>
+      <DomainSearchSection
+        isError={!!validationError}
+        errorMessage={validationError}
+        onChange={(event: any) => setDomainSearchName(event.target.value)}
+        domainSearchName={domainSearchName}
+        domainSubmitHandler={domainSubmitHandler}
+      />
+      <Box maxWidth={'1500px'} margin={'0 auto'} padding={'0 20px'}>
+        <Box sx={{ display: 'flex', transition: '300ms' }}>
+          {/* Main Body Col   */}
+          <Box sx={{ flexGrow: activeDomainName ? 1 : 0, flexShrink: 0 }}>{activeDomainName && ActiveWebsiteInformation}</Box>
+
+          {/* Recent Col   */}
+          <Box
+            sx={{
+              // width: "100%",
+              // maxWidth: "320px",
+              display: 'flex',
+              margin: '0 auto',
+              padding: '15px 25px',
+              transition: '300ms',
+              flexGrow: activeDomainName ? 0 : 1,
+              flexShrink: 1,
+              flexBasis: '320px',
+            }}
+          >
+            <Box sx={{ width: '100%', maxWidth: '824px', margin: '0 auto' }}>
+              <RecentDomainList activeDomainName={activeDomainName} recentSearchHandler={domainSubmitHandler} />
             </Box>
           </Box>
         </Box>
       </Box>
-    ) : (
-      <div>loading...</div>
-    )
+    </Box>
   );
 };
 
